@@ -17,9 +17,26 @@ def palindrome evaluating_word
 	end
 end
 
+def check_world evaluating_word
+	if evaluating_word =~ /[a-zA-Z]/
+		return true
+	else
+		return false
+	end
+	return true
+end
+
 def main
-	puts "\n\nIntroduzca una palabra para determinar si es Palindrome: "
-	evaluating_word = gets.chomp.downcase
-	palindrome evaluating_word
+	while true
+		puts "\n\nIntroduzca una palabra para determinar si es Palindrome: "
+		evaluating_word = gets.chomp.downcase.to_s
+		if check_world evaluating_word
+		else
+			puts "Recuerda Colocar Solo Palabras"
+			redo
+		end
+		palindrome evaluating_word
+		break
+	end
 end
 main
